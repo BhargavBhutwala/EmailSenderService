@@ -67,7 +67,7 @@ public class EmailServiceImpl implements EmailService{
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
             helper.setTo(recepient);
             helper.setSubject(subject);
-            helper.setText(message);
+            helper.setText(message, true);
             helper.setFrom("bhargav1999.bb@gmail.com");
 
             FileSystemResource fileSystemResource = new FileSystemResource(file);
@@ -112,7 +112,7 @@ public class EmailServiceImpl implements EmailService{
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
             helper.setTo(recepient);
             helper.setSubject(subject);
-            helper.setText(message);
+            helper.setText(message, true);
             helper.setFrom("bhargav1999.bb@gmail.com");
 
             File file = new File("/Users/bharggavbhootwalaa/Coding/Projects/EmailSender/EmailSenderService/emailserviceapi/src/main/resources/email/test.pdf");
