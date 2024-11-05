@@ -34,10 +34,10 @@ public class EmailController {
     }
 
     @PostMapping("/send-with-file")
-    public ResponseEntity<?> sendEmailWithAttachment(@RequestPart EmailRequest emailRequest, @RequestPart MultipartFile attachment){
+    public ResponseEntity<?> sendEmailWithAttachment(@RequestPart("recipient") String recipient, @RequestPart("subject") String subject, @RequestPart("message") String message, @RequestPart("attachment") MultipartFile attachment){
 
         try {
-            emailService.sendEmailWithAttachment(emailRequest.getRecipient(), emailRequest.getSubject(), emailRequest.getMessage(), attachment.getInputStream());
+            emailService.sendEmailWithAttachment(recipient, subject, message, attachment.getInputStream());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
